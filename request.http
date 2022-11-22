@@ -1,0 +1,39 @@
+http://localhost:3000/
+
+###
+http://localhost:3000/users/
+
+###
+http://localhost:3000/users/637ceef123a40cda715cca5e
+
+###
+###
+#endpoint to post a user
+POST http://localhost:3000/users HTTP/1.1
+Content-Type: application/json
+
+{
+    "name":"qvsdasaa",
+    "username":"qzausaama226",
+    "email":"qzaayeshaa12@gmail.com",
+    "bio":"akjbksadcklasnc"
+}
+
+###
+#endpoint to update a user
+PUT  http://localhost:3000/users/637ceef123a40cda4715cca5e HTTP/1.1
+Content-Type: application/json
+
+{
+    "name":"updated",
+    "username":"ayeshaqwe",
+    "email":"ayesha12@gmail.com",
+    "bio":"akjbksadcklasnc"
+}
+
+
+###
+#endpoint to delete a user
+
+DELETE   http://localhost:3000/users/637ceef123a40cda4715cca5e HTTP/1.1
+Content-Type: application/json
