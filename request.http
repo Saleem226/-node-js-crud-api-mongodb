@@ -13,21 +13,21 @@ POST http://localhost:3000/users HTTP/1.1
 Content-Type: application/json
 
 {
-    "name":"qvsdasaa",
-    "username":"qzausaama226",
-    "email":"qzaayeshaa12@gmail.com",
+    "name":"123",
+    "username":"123",
+    "email":"qzaayeshaa112@gmail.com",
     "bio":"akjbksadcklasnc"
 }
 
 ###
 #endpoint to update a user
-PUT  http://localhost:3000/users/637ceef123a40cda4715cca5e HTTP/1.1
+PUT  http://localhost:3000/users/637ceef123a40cda715cca5e HTTP/1.1
 Content-Type: application/json
 
 {
-    "name":"updated",
-    "username":"ayeshaqwe",
-    "email":"ayesha12@gmail.com",
+    "name":"updated12",
+    "username":"ayeqshaqwe",
+    "email":"ayesha12q@gmail.com",
     "bio":"akjbksadcklasnc"
 }
 
@@ -35,5 +35,5 @@ Content-Type: application/json
 ###
 #endpoint to delete a user
 
-DELETE   http://localhost:3000/users/637ceef123a40cda4715cca5e HTTP/1.1
+DELETE   http://localhost:3000/users/637ceef123a40cda715cca5e HTTP/1.1
 Content-Type: application/json

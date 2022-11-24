@@ -1,8 +1,7 @@
 const UserModal = require('../modals/userModal')
 var ObjectId = require('mongodb').ObjectId;
 class UserController {
-
-  static async find(req, res) {
+  static find = async (req, res) => {
 
     try {
       const users = await UserModal.find()
@@ -15,7 +14,7 @@ class UserController {
 
   }
 
-  static async findOne(req, res) {
+  static findOne = async (req, res) => {
 
     try {
       const { id } = req.params
@@ -31,7 +30,7 @@ class UserController {
     }
   }
 
-  static async insert(req, res) {
+  static insert = async (req, res) => {
 
     try {
       const { name, email, username, bio } = req.body
@@ -57,8 +56,7 @@ class UserController {
     }
 
   }
-
-  static async update(req, res) {
+  static update = async (req, res) => {
     try {
       const { id } = req.params
       var o_id = new ObjectId(id);
@@ -69,7 +67,7 @@ class UserController {
         if (!alreadyUser.length == 0) {
           res.send("Email or username already exists")
         } else {
-          const updatedResult = await UserModal.findByIdAndUpdate(
+          await UserModal.findByIdAndUpdate(
             { _id: o_id },
             {
               name: name,
@@ -77,37 +75,37 @@ class UserController {
               username: username,
               bio: bio
             }
-          )
-          (updatedResult)? res.send("UPDATED SUCCESSFULLY"):res.send("Hello by");
+          );
+          res.send("UPDATED SUCCESSFULLY");
         }
       } else {
         res.send("no user with the given id exists")
       }
     } catch (error) {
+      console.log(error)
       res.status(404).send("Unable to update")
     }
   }
-
-
-  static async delete(req, res) {
+  static delete = async (req, res) => {
     try {
-      const { id } = req.params
+      const {id} = req.params
       var o_id = new ObjectId(id);
-      const user = await UserModal.findById(o_id)
+      const user = await UserModal.findById(o_id);
       if (user) {
-
-        const deletedUser = await UserModal.findByIdAndDelete(o_id)
+        const deletedUser = await UserModal.findByIdAndDelete(o_id);
         res.send("User Deleted Successfully")
-
       } else {
         res.send("no user with the given id exists")
       }
     } catch (error) {
-      res.status(404).send("Unable to delete")
+      console.log(error)
+      res.status(404).send(error.message)
     }
   }
-
-
+  
 }
+
+
+
 
 module.exports = UserController
